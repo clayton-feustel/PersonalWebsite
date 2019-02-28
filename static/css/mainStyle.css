@@ -1,0 +1,105 @@
+body{
+	padding: 0px;
+	margin: 0px;
+}
+
+div.verticalCenter {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+div.mainContentPage{
+	min-height: 100%;
+}
+
+div.mainContentPageTitle{
+	margin-bottom: 8px;
+}
+
+span.mainContentPageTitleSpan{
+	font-size: 3.2em;
+	font-weight: bold;
+}
+
+span.myCitationName{
+	font-weight: bold;
+	font-style: italic;
+}
+
+p.mainContentPageParagraph{
+	margin-top: 5px;
+	font-size: 1.2em;
+}
+
+a.nav-link{
+	font-size: 1.5em;
+	
+	color: rgba(255,255,255,0.6);
+}
+
+nav#mainNavBar{
+	background: #bd5d38;
+}
+
+div#mainContent{
+	width: 100%;	
+	
+	padding-left: 0px;
+}
+
+div#avatarContainer{
+	text-align: center;
+}
+
+@media (min-width: 992px){
+
+div.publicationTitleContainers{
+	font-size: 1em;
+	font-weight: bold;
+}
+
+ul.navbar-nav{
+	width: 100%;
+
+	flex-direction: column !important;
+}
+
+li.nav-item{
+	margin: auto;
+}
+
+a.active{
+	color: rgba(255,255,255,1.0);
+}
+
+nav#mainNavBar{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	
+	height: 100%;
+	width: 300px;
+	
+	background: #bd5d38;
+	border-right: 5px solid #d69176;
+}
+
+div#mainContent{
+	padding-left: 300px;
+}
+
+img#avatar{
+	position: relative;
+	left: 15%;
+
+	width: 70%;
+	margin-left: 10%;
+	
+	border: 8px solid black;
+	border-color: #d69176;
+}
+
+}
