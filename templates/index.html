@@ -2,20 +2,20 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">  
-		
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
 		<link href="/static/css/mainStyle.css" rel="stylesheet" />
 		<link href="/static/css/bootstrap.min.css" rel="stylesheet" />
-		
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="/static/js/bootstrap.min.js"></script>
 		<script>
-			
+
 		</script>
 	</head>
 	<body data-spy="scroll" data-target="#mainNavBar">
 		<nav id="mainNavBar" class="navbar navbar-dark navbar-expand-lg fixed-top">
-			<div class="">
+			<div class="mainNavContent">
 				<a class="navbar-brand js-scroll-trigger" href="#page-top">
 					<span class="d-block d-lg-none">Clayton Feustel</span>
 					<span class="d-none d-lg-block">
@@ -34,21 +34,39 @@
 							<a class="nav-link js-scroll-trigger" href="#publicationPage">Publications</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="#education">Education</a>
+							<a class="nav-link js-scroll-trigger" href="#cvPage">CV</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+
+						<li class="item-spacer"></li>
+
+						<li id="external-nav-item-1" class="external-nav-item">
+							<div class="external-link-container">
+									<a class="external-nav-link" href="https://github.com/clayton-feustel">github</a>
+									<img class="external-nav-link-image" src="/static/images/github_icon.png" onclick="location.href='https://github.com/clayton-feustel'" />
+							</div>
+						</li>
+						<li id="external-nav-item-2" class="external-nav-item">
+							<div class="external-link-container">
+								<a class="external-nav-link" href="https://www.linkedin.com/in/clayton-feustel/">linkdn</a>
+								<img class="external-nav-link-image" src="/static/images/linkedin_icon.png" onclick="location.href='https://www.linkedin.com/in/clayton-feustel'" />
+							</div>
+						</li>
+						<li id="external-nav-item-3" class="external-nav-item">
+							<div class="external-link-container">
+								<a class="external-nav-link" href="https://scholar.google.com/citations?user=fOzogrIAAAAJ&hl=en">scholar</a>
+								<img class="external-nav-link-image" src="/static/images/scholar_icon.png" onclick="location.href='https://scholar.google.com/citations?user=fOzogrIAAAAJ&hl=en'" />
+							</div>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-	
+
 		<div id="mainContent" class="container">
 			<div id="aboutPage" class="mainContentPage verticalCenter">
 				<div class="container">
 					<div class="mainContentPageTitle"><span class="mainContentPageTitleSpan">About</span></div>
-					
+
 					<div class="mainContentPageContent">
 						<p class="mainContentPageParagraph">I am a Computer Science PhD student working in the Health Experience and Applications Lab, led by Dr. Lauren Wilcox. I have a Master's Degree in Computer Science from Georgia Tech with a specialization in human-Computer Interaction.</p>
 
@@ -61,10 +79,10 @@
 			<div id="publicationPage" class="mainContentPage verticalCenter">
 				<div class="container">
 					<div class="mainContentPageTitle"><span class="mainContentPageTitleSpan">Publications</span></div>
-					
+
 					<div class="mainContentPageContent">
 						{% for publication in data.get("publications", []) %}
-					
+
 							<div class="publicationContainer">
 								<div class="publicationIconContainer"></div>
 								<div class="publicationTitleContainers">{{ publication.get('publication', {}).get('publicationTitle', '') }}</div>
@@ -78,7 +96,7 @@
 										{% endif %}
 										,
 									{% endfor %}
-									{{ publication.get('publication', {}).get('publicationTitle', '') }}. {{ publication.get('platform', {}).get('platformTitle', '') }} ({{ publication.get('platform', {}).get('platformAbrevation') }} {{ publication.get('conference', {}).get('conferenceEndDate', "").year }}), {{ publication.get('conference', {}).get('conferenceCity', "") }}, {{ publication.get('conference', {}).get('conferenceCountry', '') }}. 
+									{{ publication.get('publication', {}).get('publicationTitle', '') }}. {{ publication.get('platform', {}).get('platformTitle', '') }} ({{ publication.get('platform', {}).get('platformAbrevation') }} {{ publication.get('conference', {}).get('conferenceEndDate', "").year }}), {{ publication.get('conference', {}).get('conferenceCity', "") }}, {{ publication.get('conference', {}).get('conferenceCountry', '') }}.
 								{% if publication.get('conference', {}).get('conferenceAcceptance', None) != None %}
 									({{ (publication.get('conference', {}).get('conferenceAcceptance', 0.0)*100)|round|int }}% acceptance rate)
 								{% endif %}</p></div>
@@ -90,10 +108,15 @@
 									<!-- container for slides go here -->
 								{% endif %}
 							</div>
-						
+
 						{% endfor %}
 					</div>
 				</div>
+			</div>
+
+			<div id="cvPage" class="mainContentPage verticalCenter">
+				<iframe src="/static/misc_content/Feustel_CV.pdf" width="100%" height="80%">
+	 			</iframe>
 			</div>
 		</div>
 	</body>
